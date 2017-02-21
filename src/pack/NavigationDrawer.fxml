@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/vixen.png" />
+         </image>
+      </ImageView>
+      <JFXButton accessibleText="Material_One" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="149.0" stylesheets="@../css/style.css" text="Yellow">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton accessibleText="Material_Two" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="149.0" stylesheets="@../css/style.css" text="Red">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton accessibleText="Material_Three" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="149.0" stylesheets="@../css/style.css" text="Green">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton accessibleText="Material_Four" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="149.0" stylesheets="@../css/style.css" text="Blue">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton accessibleText="Material_Five" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" prefHeight="50.0" prefWidth="149.0" stylesheets="@../css/style.css" text="Exit">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </JFXButton>
+   </children>
+</VBox>
