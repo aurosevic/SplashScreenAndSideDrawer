@@ -8,11 +8,13 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -20,6 +22,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
+import javafx.util.Duration;
 
 public class ScreenControler implements Initializable {
 
@@ -32,9 +35,14 @@ public class ScreenControler implements Initializable {
     @FXML
     private JFXDrawer drawer;
     
+    private static boolean isLoaded = false;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		if(!isLoaded) {
+			loadSplashScreen();
+		}
 		
 		VBox vbox = null;
 		try {
@@ -80,5 +88,45 @@ public class ScreenControler implements Initializable {
 				drawer.open();
 			}
 		});
+	}
+	
+	private void loadSplashScreen() {
+		
+		try {
+			isLoaded = true;
+			
+			AnchorPane pane = FXMLLoader.load(getClass().getResource("Splash.fxml"));
+			anchorPane.getChildren().add(pane);
+			
+			FadeTransition fadeIn = new FadeTransition(Duration.seconds(3), pane);
+			fadeIn.setFromValue(0);
+			fadeIn.setToValue(1);
+			//fadeIn.setCycleCount(1);
+			fadeIn.play();
+			
+			FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), pane);
+			fadeOut.setFromValue(1);
+			fadeOut.setToValue(0);
+			//fadeOut.setCycleCount(1);
+			
+			fadeIn.setOnFinished((e) -> {
+				fadeOut.play();
+			});
+			
+			fadeOut.setOnFinished((e) -> {
+				try {
+					Scene scene = hamburger.getScene();
+					AnchorPane paneA = FXMLLoader.load(getClass().getResource("Screen.fxml"));
+					scene.setRoot(paneA);
+					//anchorPane.getChildren().add(paneA);
+					//anchorPane.getChildren().remove(3);
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			});
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
