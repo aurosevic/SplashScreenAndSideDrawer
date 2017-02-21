@@ -17,12 +17,12 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 
-		Pane pane = FXMLLoader.load(getClass().getResource("Screen.fxml"));
+		Pane pane = FXMLLoader.load(getClass().getResource("SeparateSplash.fxml"));
 		Scene scene = new Scene(pane);
 		stage.setScene(scene);
 		stage.setTitle("Nawigation Draver");
 		stage.getIcons().add(new Image("img/vixen.png"));
-		stage.initStyle(StageStyle.UNIFIED);
+		stage.initStyle(StageStyle.UNDECORATED);
 		stage.centerOnScreen();
 		stage.show();
 	}
